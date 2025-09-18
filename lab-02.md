@@ -97,14 +97,27 @@ gérer.
 ### Exercise 5
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = total_pop)) +
+  geom_point()
 ```
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-population-total-1.png)<!-- -->
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = coastal_pop)) +
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
+
+La relation entre la quantité de déchets plastiques par habitant et le
+nombre total d’habitants semble être plus forte que celle entre la
+quantité de déchets plastiques par habitant et le nombre total
+d’habitants vivant près d’une côte. En effet, les points du premiers
+graphique sont plus concentrés près de l’axe des abscisses.
 
 ## Conclusion
 

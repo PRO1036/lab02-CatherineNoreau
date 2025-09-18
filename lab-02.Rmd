@@ -76,14 +76,16 @@ Les points colorés permettent bien d'observer la corrélation positive entre le
 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = total_pop)) +
+  geom_point()
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = coastal_pop)) +
+  geom_point()
 ```
 
-Réponse à la question...
+La relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants semble être plus forte que celle entre la quantité de déchets plastiques par habitant et le nombre total d'habitants vivant près d'une côte. En effet, les points du premiers graphique sont plus concentrés près de l'axe des abscisses.
 
 ## Conclusion
 
