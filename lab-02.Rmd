@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Votre nom"
-date: "La date"
+author: "Catherine Noreau"
+date: "22 septembre 2025"
 output: github_document
 ---
 
@@ -28,8 +28,11 @@ plastic_waste <- plastic_waste %>%
 ### Exercise 1
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram (binwidth = 0.2) +
+  facet_grid (~ continent)
 ```
+L'Amérique du nord contient le plus de pays avec un haut taux de déchets plastiques par habitant. À l'inverse, l'Afrique est le continent qui contient le plus de pays ayant la quantité de déchets plastiques par habitant la moins élevée de l'histogramme.
 
 ### Exercise 2
 
