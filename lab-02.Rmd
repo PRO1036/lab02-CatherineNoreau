@@ -32,6 +32,7 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
   geom_histogram (binwidth = 0.2) +
   facet_grid (~ continent)
 ```
+
 L'Amérique du nord contient le plus de pays avec un haut taux de déchets plastiques par habitant. À l'inverse, l'Afrique est le continent qui contient le plus de pays ayant la quantité de déchets plastiques par habitant la moins élevée de l'histogramme.
 
 ### Exercise 2
@@ -65,10 +66,11 @@ Les violin plots permettent de voir les valeurs pour lesquelles il y a une plus 
 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
-Réponse à la question...
+Les points colorés permettent bien d'observer la corrélation positive entre le nombre de déchet gérés et le nombre de déchet non gérés pour les pays d'un même continent. Autrement dit, plus les pays d'un continent produisent de déchets, plus ils ont tendance à ne pas les gérer.
 
 ### Exercise 5
 

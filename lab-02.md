@@ -32,6 +32,7 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
+
 L’Amérique du nord contient le plus de pays avec un haut taux de déchets
 plastiques par habitant. À l’inverse, l’Afrique est le continent qui
 contient le plus de pays ayant la quantité de déchets plastiques par
@@ -81,10 +82,17 @@ boxplot.
 ### Exercise 4
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged-1.png)<!-- -->
+
+Les points colorés permettent bien d’observer la corrélation positive
+entre le nombre de déchet gérés et le nombre de déchet non gérés pour
+les pays d’un même continent. Autrement dit, plus les pays d’un
+continent produisent de déchets, plus ils ont tendance à ne pas les
+gérer.
 
 ### Exercise 5
 
