@@ -40,10 +40,19 @@ habitant la moins élevée de l’histogramme.
 ### Exercise 2
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent)) +
+ geom_density(alpha = 0.5)
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
+
+Le réglage de la couleur se trouve dans la partie aes du code puisqu’il
+est appliqué en fonction d’une certaine catégorie. Chaque réponse à la
+catégorie choisie possède sa propre couleur. En bref, c’est de
+l’information supplémentaire sur la donnée donc c’est dans aes. Le
+réglage de la transparence, quant à lui, est dans la partie geom_density
+puisque c’est uniquement une caractéristique visuelle du graphique qui
+ne donne pas d’information supplémentaire sur les données.
 
 ### Exercise 3
 

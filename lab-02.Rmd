@@ -37,10 +37,11 @@ L'Amérique du nord contient le plus de pays avec un haut taux de déchets plast
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent)) +
+ geom_density(alpha = 0.5)
 ```
 
-Réponse à la question...
+Le réglage de la couleur se trouve dans la partie aes du code puisqu'il est appliqué en fonction d'une certaine catégorie. Chaque réponse à la catégorie choisie possède sa propre couleur. En bref, c'est de l'information supplémentaire sur la donnée donc c'est dans aes. Le réglage de la transparence, quant à lui, est dans la partie geom_density puisque c'est uniquement une caractéristique visuelle du graphique qui ne donne pas d'information supplémentaire sur les données.
 
 ### Exercise 3
 
