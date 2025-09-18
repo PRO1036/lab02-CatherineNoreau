@@ -48,16 +48,18 @@ Le réglage de la couleur se trouve dans la partie aes du code puisqu'il est app
 Boxplot:
 
 ```{r plastic-waste-boxplot}
-# insert code here
+ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap)) +
+  geom_boxplot()
 ```
 
 Violin plot:
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap))+
+  geom_violin()
 ```
 
-Réponse à la question...
+Les violin plots permettent de voir les valeurs pour lesquelles il y a une plus grande concentration de données, ce qui n'est pas le cas des boxplot.
 
 ### Exercise 4
 

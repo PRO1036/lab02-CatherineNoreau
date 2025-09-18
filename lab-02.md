@@ -59,16 +59,24 @@ ne donne pas d’information supplémentaire sur les données.
 Boxplot:
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap)) +
+  geom_boxplot()
 ```
+
+![](lab-02_files/figure-gfm/plastic-waste-boxplot-1.png)<!-- -->
 
 Violin plot:
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap))+
+  geom_violin()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-violin-1.png)<!-- -->
+
+Les violin plots permettent de voir les valeurs pour lesquelles il y a
+une plus grande concentration de données, ce qui n’est pas le cas des
+boxplot.
 
 ### Exercise 4
 
