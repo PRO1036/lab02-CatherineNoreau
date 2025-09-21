@@ -41,7 +41,7 @@ habitant la moins élevée de l’histogramme.
 ### Exercise 2
 
 ``` r
-ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent)) +
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent, color = continent)) +
  geom_density(alpha = 0.5)
 ```
 
@@ -49,11 +49,11 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent)) +
 
 Le réglage de la couleur se trouve dans la partie aes du code puisqu’il
 est appliqué en fonction d’une certaine catégorie. Chaque réponse à la
-catégorie choisie possède sa propre couleur. En bref, c’est de
-l’information supplémentaire sur la donnée donc c’est dans aes. Le
-réglage de la transparence, quant à lui, est dans la partie geom_density
-puisque c’est uniquement une caractéristique visuelle du graphique qui
-ne donne pas d’information supplémentaire sur les données.
+catégorie choisie possède sa propre couleur. En bref, aes permet
+d’établir une correspondance entre une données et un élément esthétique.
+Le réglage de la transparence, quant à lui, est dans la partie
+geom_density puisque c’est uniquement une caractéristique visuelle du
+graphique qui est indépendante des données.
 
 ### Exercise 3
 
@@ -124,5 +124,19 @@ graphique sont plus concentrés près de l’axe des abscisses.
 Recréez la visualisation:
 
 ``` r
-# insert code here
+ggplot(plastic_waste %>% mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3), aes(x = coastal_pop_prop, y = plastic_waste_per_cap)) +
+  geom_point(aes(color = continent)) +
+  geom_smooth(method = 'loess', se = TRUE, color = "black", fill = "grey") +
+  labs(title = "Quantité de déchets plastiques vs Proportion de la population côtière", subtitle = "Selon le continent", x = "Proportion de la population côtière (Coastal / total population)", y = "Nombre de déchets plastiques par habitant", colour = "Continent")
 ```
+
+    ## `geom_smooth()` using formula = 'y ~ x'
+
+    ## Warning: Removed 10 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
