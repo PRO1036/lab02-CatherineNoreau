@@ -30,7 +30,8 @@ plastic_waste <- plastic_waste %>%
 ```{r plastic-waste-continent}
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
   geom_histogram (binwidth = 0.2) +
-  facet_grid (~ continent)
+  facet_grid (~ continent) +
+  labs(title = "Distribution de la quantité de déchets plastiques par habitant pour les six continents", x = "Nombre de déchets plastiques par habitant")
 ```
 
 L'Amérique du nord contient le plus de pays avec un haut taux de déchets plastiques par habitant. À l'inverse, l'Afrique est le continent qui contient le plus de pays ayant la quantité de déchets plastiques par habitant la moins élevée de l'histogramme.
@@ -39,7 +40,8 @@ L'Amérique du nord contient le plus de pays avec un haut taux de déchets plast
 
 ```{r plastic-waste-density}
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent, color = continent)) +
- geom_density(alpha = 0.5)
+ geom_density(alpha = 0.5) +
+  labs(title = "Densité de la quantité de déchets plastiques par habitant", subtitle = "Selon le continent", x = "Nombre de déchets plastiques par habitant", y = "Densité")
 ```
 
 Le réglage de la couleur se trouve dans la partie aes du code puisqu'il est appliqué en fonction d'une certaine catégorie. Chaque réponse à la catégorie choisie possède sa propre couleur. En bref, aes permet d'établir une correspondance entre une données et un élément esthétique. Le réglage de la transparence, quant à lui, est dans la partie geom_density puisque c'est uniquement une caractéristique visuelle du graphique qui est indépendante des données.
@@ -50,14 +52,16 @@ Boxplot:
 
 ```{r plastic-waste-boxplot}
 ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap)) +
-  geom_boxplot()
+  geom_boxplot() +
+  labs(title = "Quantité de déchets plastiques par habitant vs Continent", x = "Continent", y = "Nombre de déchets plastiques par habitant")
 ```
 
 Violin plot:
 
 ```{r plastic-waste-violin}
 ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap))+
-  geom_violin()
+  geom_violin() +
+  labs(title = "Quantité de déchets plastiques par habitant vs Continent", x = "Continent", y = "Nombre de déchets plastiques par habitant")
 ```
 
 Les violin plots permettent de voir les valeurs pour lesquelles il y a une plus grande concentration de données, ce qui n'est pas le cas des boxplot.
@@ -67,7 +71,8 @@ Les violin plots permettent de voir les valeurs pour lesquelles il y a une plus 
 
 ```{r plastic-waste-mismanaged}
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et la quantité de déchets non gérés par habitants", subtitle = "Selon le continent", x = "Nombre de déchets plastiques par habitant", y = "Nombre de déchets non gérés par habitant", color = "Continent")
 ```
 
 Les points colorés permettent bien d'observer la corrélation positive entre le nombre de déchet gérés et le nombre de déchet non gérés pour les pays d'un même continent. Autrement dit, plus les pays d'un continent produisent de déchets, plus ils ont tendance à ne pas les gérer.
@@ -77,12 +82,14 @@ Les points colorés permettent bien d'observer la corrélation positive entre le
 
 ```{r plastic-waste-population-total}
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = total_pop)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants", x = "Nombre de déchets plastiques par habitant", y = "Nombre total d'habitants")
 ```
 
 ```{r plastic-waste-population-coastal}
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = coastal_pop)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants vivant près d'une côte", x = "Quantité de déchets plastiques par habitant", y = "Nombre total d'habitants vivant près d'une côte")
 ```
 
 La relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants semble être plus forte que celle entre la quantité de déchets plastiques par habitant et le nombre total d'habitants vivant près d'une côte. En effet, les points du premiers graphique sont plus concentrés près de l'axe des abscisses.

@@ -28,7 +28,8 @@ plastic_waste <- plastic_waste %>%
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
   geom_histogram (binwidth = 0.2) +
-  facet_grid (~ continent)
+  facet_grid (~ continent) +
+  labs(title = "Distribution de la quantité de déchets plastiques par habitant pour les six continents", x = "Nombre de déchets plastiques par habitant")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
@@ -42,7 +43,8 @@ habitant la moins élevée de l’histogramme.
 
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, fill = continent, color = continent)) +
- geom_density(alpha = 0.5)
+ geom_density(alpha = 0.5) +
+  labs(title = "Densité de la quantité de déchets plastiques par habitant", subtitle = "Selon le continent", x = "Nombre de déchets plastiques par habitant", y = "Densité")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
@@ -61,7 +63,8 @@ Boxplot:
 
 ``` r
 ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap)) +
-  geom_boxplot()
+  geom_boxplot() +
+  labs(title = "Quantité de déchets plastiques par habitant vs Continent", x = "Continent", y = "Nombre de déchets plastiques par habitant")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-boxplot-1.png)<!-- -->
@@ -70,7 +73,8 @@ Violin plot:
 
 ``` r
 ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap))+
-  geom_violin()
+  geom_violin() +
+  labs(title = "Quantité de déchets plastiques par habitant vs Continent", x = "Continent", y = "Nombre de déchets plastiques par habitant")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-violin-1.png)<!-- -->
@@ -83,7 +87,8 @@ boxplot.
 
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et la quantité de déchets non gérés par habitants", subtitle = "Selon le continent", x = "Nombre de déchets plastiques par habitant", y = "Nombre de déchets non gérés par habitant", color = "Continent")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-mismanaged-1.png)<!-- -->
@@ -98,7 +103,8 @@ gérer.
 
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = total_pop)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants", x = "Nombre de déchets plastiques par habitant", y = "Nombre total d'habitants")
 ```
 
     ## Warning: Removed 10 rows containing missing values or values outside the scale range
@@ -108,7 +114,8 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = total_pop)) +
 
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = coastal_pop)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants vivant près d'une côte", x = "Quantité de déchets plastiques par habitant", y = "Nombre total d'habitants vivant près d'une côte")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
