@@ -28,7 +28,7 @@ plastic_waste <- plastic_waste %>%
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
   geom_histogram (binwidth = 0.2) +
-  facet_grid (~ continent) +
+  facet_wrap (~ continent, ncol = 3) +
   labs(title = "Distribution de la quantité de déchets plastiques par habitant pour les six continents", x = "Nombre de déchets plastiques par habitant")
 ```
 
@@ -115,7 +115,7 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = total_pop)) +
 ``` r
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = coastal_pop)) +
   geom_point() +
-  labs(title = "Relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants vivant près d'une côte", x = "Quantité de déchets plastiques par habitant", y = "Nombre total d'habitants vivant près d'une côte")
+  labs(title = "Relation entre la quantité de déchets plastiques par habitant et le nombre total d'habitants vivant près d'une côte", x = "Nombre de déchets plastiques par habitant", y = "Nombre total d'habitants vivant près d'une côte")
 ```
 
 ![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
@@ -124,7 +124,10 @@ La relation entre la quantité de déchets plastiques par habitant et le
 nombre total d’habitants semble être plus forte que celle entre la
 quantité de déchets plastiques par habitant et le nombre total
 d’habitants vivant près d’une côte. En effet, les points du premiers
-graphique sont plus concentrés près de l’axe des abscisses.
+graphique sont plus concentrés près de l’axe des abscisses. Pour être en
+mesure de mieux étudier ces graphiques, il pourrait être intéressant de
+retirer les valeurs abberants, ce qui permettrait de mieux visualiser
+les graphiques.
 
 ## Conclusion
 
@@ -147,3 +150,15 @@ ggplot(plastic_waste %>% mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
     ## (`geom_point()`).
 
 ![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
+
+On peut remarquer sur ce graphique que les pays d’Afrique sont
+majoritairement en dessous de la ligne qui caractérise l’ensemble des
+données. Les autres continents semblent, eux, être présents en
+proportions similaires au-dessus et au-dessous de cette ligne. Par
+ailleurs, on observe au début que la quantité de déchets plastiques par
+habitant augmente avec la proportion de la population côtière, puis un
+plateau se fait aux alentours d’une proportion de population côtière de
+1,0. Dépassé ce point, la quantité de déchets plastiques par habitant se
+met à diminuer un peu. En outre, un pays d’Océanie possède la plus
+grande population côtière et un pays d’Asie produit le plus de déchets
+plastiques par habitant.
